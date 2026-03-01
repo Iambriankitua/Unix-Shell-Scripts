@@ -1,0 +1,28 @@
+# Unix-Shell-Scripts
+#!/bin/bash
+# A simple shell script that counts lines in each file given as argument
+
+for f in "$@"
+do
+  echo "File: $f"
+  wc -l "$f"
+done
+bash count_lines.sh file1.txt file2.txt
+#!/bin/bash
+# find_all_txt.sh
+# Finds all .txt files in the current directory and subdirectories
+find . -name "*.txt"
+bash find_all_txt.sh
+#!/bin/bash
+# grep_search.sh
+# Searches for a user-given word in text files
+
+pattern="$1"   # first argument is the pattern
+shift          # remove first argument
+
+for f in "$@"
+do
+  echo "Searching in $f…"
+  grep "$pattern" "$f"
+done
+bash grep_search.sh "error" logfile1.txt logfile2.txt
